@@ -23,6 +23,12 @@ $ yarn
 $ yarn start
 ```
 
+## How to package
+
+```
+$ yarn pkg:mac
+```
+
 ## References
 - To test
   - https://onsen.io/blog/mocha-chaijs-unit-test-coverage-es6/

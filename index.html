@@ -1,14 +1,119 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>todo</title>
+    <title>starter</title>
+    <link rel="stylesheet" href="./vendor/css/photon.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="./index.css" media="screen" charset="utf-8">
     <script>
       // install babel hooks in the renderer process
-      require('babel-register')
+      // require('babel-register')
       require('./src/app')
     </script>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="header-arrow"></div>
+    <div class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title">TODO <span class="js-update-time"></span></h1>
+
+        <div class="toolbar-actions">
+          <div class="btn-group">
+            <button class="btn btn-default active">
+              <span class="icon icon-check"></span>
+            </button>
+            <button class="btn btn-default">
+              <span class="icon icon-link"></span>
+            </button>
+            <button class="btn btn-default">
+              <span class="icon icon-users"></span>
+            </button>
+          </div>
+
+          <button class="btn btn-default">
+            <span class="icon icon-home icon-text"></span>
+            Filters
+          </button>
+
+          <button class="btn btn-default btn-dropdown pull-right">
+            <span class="icon icon-megaphone"></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="window-content">
+        <div class="pane">
+
+          <div class="summary js-summary" style="display: none">Loading&hellip;</div>
+
+          <div style="margin:5px">
+            <h3 class="" style="float:left; margin-top: -7px; margin-bottom: 0">24</h3>
+            <div class="pull-right">
+              <b>April</b> <span>2017</span>
+            </div>
+          </div>
+
+          <ul style="clear:both; padding: 0 10px">
+            <li>
+              <label>
+                <input type="checkbox" name="">
+                <span>Call Mom</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="">
+                <span>Schedule annual checkup</span>
+              </label>
+              <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="">
+                <span>Outline chapter 5</span>
+              </label>
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="">
+                <span>Presentation - Continuous integration with Node.js</span>
+              </label>
+              <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
+            </li>
+            <li>
+              <label>
+                <input type="checkbox" name="">
+                <span>Make Gorae 2017 development plan</span>
+              </label>
+              <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <footer class="toolbar toolbar-footer">
+
+        <div class="footer-link">
+          Powered by <a href="https://github.com/rhiokim/todo">Github</a>
+        </div>
+
+        <div class="toolbar-actions pull-right">
+          <div class="btn-group">
+            <button class="btn btn-default js-refresh-action">
+              <span class="icon icon-arrows-ccw js-refresh-action" title="Refresh"></span>
+            </button>
+
+            <button class="btn btn-default show-devtool-action">
+              <span class="icon icon-tools show-devtool-action" title="DevTool"></span>
+            </button>
+
+            <button class="btn btn-default js-quit-action">
+              <span class="icon icon-cancel js-quit-action" title="Quit"></span>
+            </button>
+          </div>
+        </div>
+
+      </footer>
+    </div>
   </body>
 </html>

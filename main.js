@@ -1,33 +1,90 @@
 // import { app, BrowserWindow, Menu, dialog } from 'electron'
-const { app, BrowserWindow } = require('electron')
+const { app, Tray, BrowserWindow, ipcMain } = require('electron')
+const path = require('path')
 
+const iconPath = path.join(__dirname, 'assets/ic_check_black_24dp_1x.png')
 let mainWindow = null
-let willQuit = false
+let tray = null
 
-function createWindow () {
+app.dock.hide()
+
+const createTray = () => {
+  tray = new Tray(iconPath)
+  tray.on('right-click', toggleWindow)
+  tray.on('double-click', toggleWindow)
+  tray.on('click', (event) => {
+    toggleWindow()
+
+    if (mainWindow.isVisible() && process.defaultApp && event.metaKey) {
+      mainWindow.openDevTools({mode: 'detach'})
+    }
+  })
+}
+
+const getWindowPosition = () => {
+  const windowBounds = mainWindow.getBounds()
+  const trayBounds = tray.getBounds()
+
+  // Center window horizontally below the tray icon
+  const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))
+
+  // Position window 4 pixels vertically below the tray icon
+  const y = Math.round(trayBounds.y + trayBounds.height + 4)
+
+  return {x: x, y: y}
+}
+
+const showWindow = () => {
+  const position = getWindowPosition()
+  mainWindow.setPosition(position.x, position.y, false)
+  mainWindow.show()
+  mainWindow.focus()
+}
+
+const toggleWindow = () => {
+  if (mainWindow.isVisible()) {
+    mainWindow.hide()
+  } else {
+    showWindow()
+  }
+}
+
+const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 800,
-    maxWidth: 800,
-    height: 600,
+    width: 300,
+    height: 450,
+    show: false,
+    frame: false,
     fullscreenable: false,
-    backgroundColor: '#403F4D'
+    resizable: false,
+    transparent: true,
+    webPreferences: {
+      backgroundThrottling: false
+    }
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-}
-
-app.on('ready', () => {
-  createWindow()
-
-  mainWindow.on('close', (e) => {
-    if (willQuit) {
-      mainWindow = null
-    } else {
-      e.preventDefault()
+  mainWindow.on('blur', () => {
+    if (!mainWindow.webContents.isDevToolsOpened()) {
       mainWindow.hide()
     }
   })
+}
+
+app.on('ready', () => {
+  createTray()
+  createWindow()
 })
 
-app.on('activate', () => mainWindow.show())
-app.on('before-quit', () => willQuit = true)
+// Quit the app when the window is closed
+app.on('window-all-closed', () => {
+  app.quit()
+})
+
+ipcMain.on('show-window', () => {
+  showWindow()
+})
+
+ipcMain.on('show-devtool', () => {
+  mainWindow.openDevTools({mode: 'detach'})
+})

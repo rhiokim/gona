@@ -1,8 +1,8 @@
 {
-  "name": "seed-electron",
+  "name": "todo",
   "version": "0.0.1",
   "main": "bootstrapper.js",
-  "repository": "git@github.com:rhiokim/.seed-electron.git",
+  "repository": "git@github.com:rhiokim/todo.git",
   "author": "Rhio Kim <rhio.kim@gmail.com>",
   "license": "MIT",
   "private": true,
