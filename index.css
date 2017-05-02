@@ -11,6 +11,22 @@ label {
   margin: 0;
 }
 
+label > input[type=checkbox] {
+  margin-right: 5px;
+}
+
+.task,
+.link {
+  width: 100%;
+  display: inline-block;
+}
+
+.task-label,
+.link-label {
+  width: 255px;
+  display: inline-block;
+}
+
 /* The arrow at the top of the window */
 .header-arrow {
   position: absolute;

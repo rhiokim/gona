@@ -30,8 +30,8 @@
           </div>
 
           <button class="btn btn-default">
-            <span class="icon icon-home icon-text"></span>
-            Filters
+            <span class="icon icon-plus icon-text"></span>
+            New
           </button>
 
           <button class="btn btn-default btn-dropdown pull-right">
@@ -45,6 +45,19 @@
 
           <div class="summary js-summary" style="display: none">Loading&hellip;</div>
 
+          <div style="
+    height: 5px;
+    background-color: #000;">
+            <div style="background-color: #dde829; height: 5px;width: 80%;display: inline-block;position: absolute;"></div>
+            <div style="
+    width: 30%;
+    height: 5px;
+    background-color: #3cd23c;
+    position: absolute;
+    display: inline-block;
+"></div>
+          </div>
+
           <div style="margin:5px">
             <h3 class="" style="float:left; margin-top: -7px; margin-bottom: 0">24</h3>
             <div class="pull-right">
@@ -53,34 +66,36 @@
           </div>
 
           <ul style="clear:both; padding: 0 10px">
-            <li>
-              <label>
+            <li class="task">
+              <label class="task-label">
                 <input type="checkbox" name="">
                 <span>Call Mom</span>
               </label>
+              <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
             </li>
-            <li>
-              <label>
+            <li class="task">
+              <label class="task-label">
                 <input type="checkbox" name="">
                 <span>Schedule annual checkup</span>
               </label>
               <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
             </li>
-            <li>
-              <label>
+            <li class="task">
+              <label class="task-label">
                 <input type="checkbox" name="">
                 <span>Outline chapter 5</span>
               </label>
+              <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
             </li>
-            <li>
-              <label>
+            <li class="task">
+              <label class="task-label">
                 <input type="checkbox" name="">
                 <span>Presentation - Continuous integration with Node.js</span>
               </label>
               <img class="icon-pomo pull-right" src="./assets/pomodoro.png" align="absmiddle" />
             </li>
-            <li>
-              <label>
+            <li class="task">
+              <label class="task-label">
                 <input type="checkbox" name="">
                 <span>Make Gorae 2017 development plan</span>
               </label>
@@ -88,13 +103,29 @@
             </li>
           </ul>
 
+          <hr/>
+
+          <ul style="clear:both; padding: 0 10px">
+            <li class="link">
+              <label class="link-label">
+                <input type="checkbox" name="">
+                <a href="https://github.com/rhiokim/todo">
+                  https://github.com/rhiokim/todo
+                </a>
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
 
       <footer class="toolbar toolbar-footer">
 
-        <div class="footer-link">
-          Powered by <a href="https://github.com/rhiokim/todo">Github</a>
+        <div class="toolbar-actions pull-left">
+          <div class="btn-group">
+            <a href="https://github.com/rhiokim/todo" class="btn btn-default">
+              <span class="icon icon-github" title="Refresh"></span>
+            </a>
+          </div>
         </div>
 
         <div class="toolbar-actions pull-right">

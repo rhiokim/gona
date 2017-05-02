@@ -51,7 +51,7 @@ const toggleWindow = () => {
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 300,
+    width: 350,
     height: 450,
     show: false,
     frame: false,
