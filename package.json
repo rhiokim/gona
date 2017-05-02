@@ -1,6 +1,6 @@
 {
   "name": "todo",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "bootstrapper.js",
   "repository": "git@github.com:rhiokim/todo.git",
   "author": "Rhio Kim <rhio.kim@gmail.com>",
