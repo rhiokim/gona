@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./index.css" media="screen" charset="utf-8">
     <script>
       // install babel hooks in the renderer process
-      // require('babel-register')
+      require('babel-register')
       require('./src/app')
     </script>
   </head>
@@ -45,17 +45,9 @@
 
           <div class="summary js-summary" style="display: none">Loading&hellip;</div>
 
-          <div style="
-    height: 5px;
-    background-color: #000;">
+          <div style="height: 5px; background-color: #000;">
             <div style="background-color: #dde829; height: 5px;width: 80%;display: inline-block;position: absolute;"></div>
-            <div style="
-    width: 30%;
-    height: 5px;
-    background-color: #3cd23c;
-    position: absolute;
-    display: inline-block;
-"></div>
+            <div style="width: 30%; height: 5px; background-color: #3cd23c; position: absolute; display: inline-block;"></div>
           </div>
 
           <div style="margin:5px">

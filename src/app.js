@@ -1,4 +1,6 @@
-const {ipcRenderer, shell} = require('electron')
+import {ipcRenderer, shell} from 'electron'
+
+require('./dbconn')
 
 document.addEventListener('click', event => {
   if (event.target.href) {

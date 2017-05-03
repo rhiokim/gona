@@ -1,6 +1,5 @@
-// import { app, BrowserWindow, Menu, dialog } from 'electron'
-const { app, Tray, BrowserWindow, ipcMain } = require('electron')
-const path = require('path')
+import { app, BrowserWindow, ipcMain, Tray } from 'electron'
+import path from 'path'
 
 const iconPath = path.join(__dirname, 'assets/ic_check_black_24dp_1x.png')
 let mainWindow = null
