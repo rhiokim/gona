@@ -1,16 +1,16 @@
 import * as actionTypes from '../constants/actionTypes'
 
 const initialState = {
-  tracks: [],
-  activeTrack: null
+  active: 'todo'
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_TRACKS:
-      break
+    case actionTypes.SET_ACTIVE_MENU:
+      return Object.assign({}, state, {
+        active: action.menu
+      })
     default:
-      break
+      return state
   }
-  return state
 }

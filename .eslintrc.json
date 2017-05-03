@@ -11,11 +11,13 @@
   "globals": {
   },
   "plugins": [
-    "flowtype"
+    "flowtype",
+    "react"
   ],
   "extends": [
     "standard",
-    "standard-flow"
+    "standard-flow",
+    "react-app"
   ],
   "settings": {
     "flowtype": {

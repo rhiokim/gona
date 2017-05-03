@@ -27,6 +27,9 @@ label > input[type=checkbox] {
   display: inline-block;
 }
 
+img.icon-pomo {
+  vertical-align: middle;
+}
 /* The arrow at the top of the window */
 .header-arrow {
   position: absolute;
@@ -98,6 +101,41 @@ label > input[type=checkbox] {
   color: var(--text-color);
 }
 
+.hide {
+  display: none;
+}
+
+.list {
+  clear:both; padding: 0 10px
+}
+
+/* */
+.progress {
+  height: 5px; background-color: #000;
+}
+.progress .remain {
+  background-color: #dde829; height: 5px;width: 80%;display: inline-block;position: absolute;
+}
+.progress .done {
+  width: 30%; height: 5px; background-color: #3cd23c; position: absolute; display: inline-block;
+}
+
+.yy-mm {
+  margin-top: 2px;
+}
+.day {
+  margin:5px;
+}
+
+.day .date {
+  float:left; margin-top: -9px; margin-bottom: 0;
+}
+
+.day .date small {
+  vertical-align: middle;
+  color: #969696;
+  font-size: 50%;
+}
 /* icon */
 .icon-pomo {
   width: 20px;
