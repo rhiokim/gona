@@ -1,6 +1,8 @@
 import React from 'react'
 
 import {Header, Footer} from '../components'
+import Tasks from './Tasks'
+import Links from './Links'
 
 export default class App extends React.Component {
   constructor (props) {
@@ -36,78 +38,12 @@ export default class App extends React.Component {
                 </div>
               </div>
 
-              <ul className="list">
-                <li className="task">
-                  <label className="task-label">
-                    <input type="checkbox" name="" />
-                    <span>Call Mom</span>
-                  </label>
-                  <img
-                    className="icon-pomo pull-right"
-                    src="./assets/pomodoro.png"
-                    alt=""
-                  />
-                </li>
-                <li className="task">
-                  <label className="task-label">
-                    <input type="checkbox" name="" />
-                    <span>Schedule annual checkup</span>
-                  </label>
-                  <img
-                    className="icon-pomo pull-right"
-                    src="./assets/pomodoro.png"
-                    alt=""
-                  />
-                </li>
-                <li className="task">
-                  <label className="task-label">
-                    <input type="checkbox" name="" />
-                    <span>Outline chapter 5</span>
-                  </label>
-                  <img
-                    className="icon-pomo pull-right"
-                    src="./assets/pomodoro.png"
-                    alt=""
-                  />
-                </li>
-                <li className="task">
-                  <label className="task-label">
-                    <input type="checkbox" name="" />
-                    <span>
-                      Presentation - Continuous integration with Node.js
-                    </span>
-                  </label>
-                  <img
-                    className="icon-pomo pull-right"
-                    src="./assets/pomodoro.png"
-                    alt=""
-                  />
-                </li>
-                <li className="task">
-                  <label className="task-label">
-                    <input type="checkbox" name="" />
-                    <span>Make Gorae 2017 development plan</span>
-                  </label>
-                  <img
-                    className="icon-pomo pull-right"
-                    src="./assets/pomodoro.png"
-                    alt=""
-                  />
-                </li>
-              </ul>
+              <Tasks />
 
               <hr />
 
-              <ul className="list">
-                <li className="link">
-                  <label className="link-label">
-                    <input type="checkbox" name="" />
-                    <a href="https://github.com/rhiokim/todo">
-                      https://github.com/rhiokim/todo
-                    </a>
-                  </label>
-                </li>
-              </ul>
+              <Links />
+
             </div>
           </div>
 

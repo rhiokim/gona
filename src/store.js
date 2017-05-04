@@ -1,15 +1,9 @@
 const watch = require('node-watch')
 const os = require('os')
 const path = require('path')
-
-const year = new Date().getFullYear()
-const dbfile = path.join(os.homedir(), '.haroo', `${year}.json`)
-
 const low = require('lowdb')
 
-watch(dbfile, (e, name) => {
-  const db = low(dbfile)
-})
+const year = new Date().getFullYear()
 
 const getKey = () => {
   const d = new Date()
@@ -19,11 +13,24 @@ const getKey = () => {
   return `${month}/${date}`
 }
 
-const getState = (part = 'tasks') => {
-  return `${part}/${getKey()}`
+export const getTodoState = (part = 'tasks') => {
+  const db = getStorage()
+  return db.get(`${part}/${getKey()}`).value()
 }
 
 export const loadState = () => {
-  const db = low(dbfile)
-  return db.get(getState()).value()
+  const db = getStorage()
+  return db.get('config').value()
 }
+
+export const storageFilePath = () => {
+  return path.join(os.homedir(), '.haroo', `${year}.json`)
+}
+
+export const getStorage = () => {
+  return low(storageFilePath())
+}
+
+watch(storageFilePath(), (e, name) => {
+  const db = getStorage()
+})
