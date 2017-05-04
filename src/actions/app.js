@@ -1,6 +1,6 @@
-import * as actionTypes from '../constants/actionTypes'
+import {SET_ACTIVE_MENU} from '../constants/actionTypes'
 
 export const setActiveMenu = menu => ({
-  type: actionTypes.SET_ACTIVE_MENU,
+  type: SET_ACTIVE_MENU,
   menu: menu
 })

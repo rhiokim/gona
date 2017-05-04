@@ -1,5 +1,6 @@
 /* app state */
 export const SET_ACTIVE_MENU = 'SET_ACTIVE_MENU'
+export const CHANGE_STORAGE = 'CHANGE_STORAGE'
 
 /* tasks */
 export const FETCH_TASKS = 'FETCH_TASKS'

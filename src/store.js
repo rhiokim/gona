@@ -1,7 +1,9 @@
-const watch = require('node-watch')
-const os = require('os')
-const path = require('path')
-const low = require('lowdb')
+import os from 'os'
+import path from 'path'
+import low from 'lowdb'
+import watch from 'node-watch'
+
+import {CHANGE_STORAGE} from './constants/actionTypes'
 
 const year = new Date().getFullYear()
 
@@ -31,6 +33,12 @@ export const getStorage = () => {
   return low(storageFilePath())
 }
 
-watch(storageFilePath(), (e, name) => {
-  const db = getStorage()
-})
+export const setWatcher = store => {
+  watch(storageFilePath(), (e, name) => {
+    const tasks = getTodoState('tasks')
+    store.dispatch({
+      type: CHANGE_STORAGE,
+      tasks
+    })
+  })
+}

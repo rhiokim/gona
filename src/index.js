@@ -7,7 +7,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import {createLogger} from 'redux-logger'
 import {ipcRenderer, shell} from 'electron'
 
-import {loadState} from './store'
+import {loadState, setWatcher} from './store'
 import rootReducer from './reducers'
 
 import App from './container/app'
@@ -27,6 +27,8 @@ let store = createStore(
 store.subscribe(() => {
   console.log(store.getState())
 })
+
+setWatcher(store)
 
 const Main = () => (
   <Provider store={store}>
