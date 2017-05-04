@@ -1,14 +1,14 @@
-import * as actionTypes from '../constants/actionTypes'
+import {FETCH_TASKS} from '../constants/actionTypes'
 import {getTodoState, getStorage} from '../store'
 
-export const loadTasks = () => ({
-  type: actionTypes.LOAD_TASKS
+const loadTasks = tasks => ({
+  type: FETCH_TASKS,
+  tasks: tasks
 })
 
-export const getTasks = () => {
+export const fetchTasks = () => {
   return dispatch => {
     const tasks = getTodoState('tasks')
-    dispatch(loadTasks())
-    console.log(tasks)
+    dispatch(loadTasks(tasks))
   }
 }

@@ -5,76 +5,43 @@ import {connect} from 'react-redux'
 import * as TaskActions from '../actions/tasks'
 
 class Tasks extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {}
+  }
+
   componentWillMount () {
-    this.props.getTasks()
+    this.props.fetchTasks()
   }
 
   render () {
+    const {tasks} = this.props
     return (
       <ul className="list">
-        <li className="task">
-          <label className="task-label">
-            <input type="checkbox" name="" />
-            <span>Call Mom</span>
-          </label>
-          <img
-            className="icon-pomo pull-right"
-            src="./assets/pomodoro.png"
-            alt=""
-          />
-        </li>
-        <li className="task">
-          <label className="task-label">
-            <input type="checkbox" name="" />
-            <span>Schedule annual checkup</span>
-          </label>
-          <img
-            className="icon-pomo pull-right"
-            src="./assets/pomodoro.png"
-            alt=""
-          />
-        </li>
-        <li className="task">
-          <label className="task-label">
-            <input type="checkbox" name="" />
-            <span>Outline chapter 5</span>
-          </label>
-          <img
-            className="icon-pomo pull-right"
-            src="./assets/pomodoro.png"
-            alt=""
-          />
-        </li>
-        <li className="task">
-          <label className="task-label">
-            <input type="checkbox" name="" />
-            <span>
-              Presentation - Continuous integration with Node.js
-            </span>
-          </label>
-          <img
-            className="icon-pomo pull-right"
-            src="./assets/pomodoro.png"
-            alt=""
-          />
-        </li>
-        <li className="task">
-          <label className="task-label">
-            <input type="checkbox" name="" />
-            <span>Make Gorae 2017 development plan</span>
-          </label>
-          <img
-            className="icon-pomo pull-right"
-            src="./assets/pomodoro.png"
-            alt=""
-          />
-        </li>
+        {tasks.map((task, i) => {
+          return (
+            <li className="task" key={i}>
+              <label className="task-label">
+                <input type="checkbox" name="" />
+                <span>{task.subject}</span>
+              </label>
+              <img
+                className="icon-pomo pull-right"
+                src="./assets/pomodoro.png"
+                alt=""
+              />
+            </li>
+          )
+        })}
       </ul>
     )
   }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = state => ({
+  tasks: state.Tasks.tasks
+})
 const mapDispatchToProps = dispatch => bindActionCreators(TaskActions, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tasks)
