@@ -31,6 +31,8 @@ export const getStorage = () => {
   return low(storageFilePath())
 }
 
-watch(storageFilePath(), (e, name) => {
-  const db = getStorage()
-})
+export const setWatcher = store => {
+  watch(storageFilePath(), (e, name) => {
+    store.dispatch({type: 'CHANGE_STORAGE'})
+  })
+}
