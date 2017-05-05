@@ -20,6 +20,11 @@ export const getTodoState = (part = 'tasks') => {
   return db.get(`${part}/${getKey()}`).value()
 }
 
+export const getTodoItem = (part = 'tasks', idx = 0) => {
+  const db = getStorage()
+  return db.get(`${part}/${getKey()}`).nth(idx)
+}
+
 export const loadState = () => {
   const db = getStorage()
   return db.get('config').value()

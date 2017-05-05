@@ -11,6 +11,12 @@ class Tasks extends React.Component {
     this.state = {}
   }
 
+  handleClick (i, event) {
+    const el = event.target
+    const value = el.checked
+    this.props.doneTask(i, value)
+  }
+
   componentWillMount () {
     this.props.fetchTasks()
   }
@@ -23,7 +29,12 @@ class Tasks extends React.Component {
           return (
             <li className="task" key={i}>
               <label className="task-label">
-                <input type="checkbox" name="" />
+                <input
+                  type="checkbox"
+                  name=""
+                  checked={task.done}
+                  onChange={this.handleClick.bind(this, i)}
+                />
                 <span>{task.subject}</span>
               </label>
               <img
