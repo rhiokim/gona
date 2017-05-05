@@ -6,7 +6,9 @@ import {
 
 const initialState = {
   active: 'todo',
-  tasks: [],
+  workspace: {
+    default: []
+  },
   links: []
 }
 
@@ -18,12 +20,12 @@ export default (state = initialState, action) => {
       })
     case CHANGE_STORAGE:
       return Object.assign({}, state, {
-        tasks: action.tasks,
+        workspace: action.workspace,
         links: action.links
       })
     case FETCH_TASKS:
       return Object.assign({}, state, {
-        tasks: action.tasks || []
+        workspace: {default: action.tasks}
       })
     default:
       return state

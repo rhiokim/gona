@@ -8,7 +8,9 @@ class Tasks extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      workspace: 'default'
+    }
   }
 
   handleClick (i, event) {
@@ -22,7 +24,7 @@ class Tasks extends React.Component {
   }
 
   render () {
-    const {tasks} = this.props
+    const tasks = this.props.workspace[this.state.workspace]
     return (
       <ul className="list">
         {tasks.map((task, i) => {
@@ -51,7 +53,7 @@ class Tasks extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  tasks: state.App.tasks
+  workspace: state.App.workspace
 })
 const mapDispatchToProps = dispatch => bindActionCreators(TaskActions, dispatch)
 

@@ -15,24 +15,24 @@ const getKey = () => {
   return `${month}/${date}`
 }
 
-export const getTodoState = (part = 'tasks') => {
+export const getTodoState = (part = 'tasks', workspace = 'default') => {
   const db = getStorage()
-  return db.get(`${part}/${getKey()}`).value()
+  return db.get(`${part}/${getKey()}.${workspace}`).value()
 }
 
 export const getTodoAll = () => {
   const db = getStorage()
   return {
-    tasks: db.get(`tasks/${getKey()}`).value(),
+    workspace: db.get(`tasks/${getKey()}`).value(),
     link: db.get(`link/${getKey()}`).value()
     // tasks: db.get(`tasks/${getKey()}`).value(),
     // tasks: db.get(`tasks/${getKey()}`).value()
   }
 }
 
-export const getTodoItem = (part = 'tasks', idx = 0) => {
+export const getTodoItem = (part = 'tasks', idx = 0, workspace = 'default') => {
   const db = getStorage()
-  return db.get(`${part}/${getKey()}`).nth(idx)
+  return db.get(`${part}/${getKey()}.${workspace}`).nth(idx)
 }
 
 export const loadState = () => {
@@ -53,7 +53,7 @@ export const setWatcher = store => {
     const todo = getTodoAll()
     store.dispatch({
       type: CHANGE_STORAGE,
-      tasks: todo.tasks || [],
+      workspace: todo.workspace,
       links: todo.links || []
     })
   })
