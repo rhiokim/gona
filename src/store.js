@@ -20,6 +20,16 @@ export const getTodoState = (part = 'tasks') => {
   return db.get(`${part}/${getKey()}`).value()
 }
 
+export const getTodoAll = () => {
+  const db = getStorage()
+  return {
+    tasks: db.get(`tasks/${getKey()}`).value(),
+    link: db.get(`link/${getKey()}`).value()
+    // tasks: db.get(`tasks/${getKey()}`).value(),
+    // tasks: db.get(`tasks/${getKey()}`).value()
+  }
+}
+
 export const getTodoItem = (part = 'tasks', idx = 0) => {
   const db = getStorage()
   return db.get(`${part}/${getKey()}`).nth(idx)
@@ -40,10 +50,11 @@ export const getStorage = () => {
 
 export const setWatcher = store => {
   watch(storageFilePath(), (e, name) => {
-    const tasks = getTodoState('tasks')
+    const todo = getTodoAll()
     store.dispatch({
       type: CHANGE_STORAGE,
-      tasks
+      tasks: todo.tasks || [],
+      links: todo.links || []
     })
   })
 }

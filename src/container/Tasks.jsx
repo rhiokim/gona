@@ -51,7 +51,7 @@ class Tasks extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  tasks: state.Tasks.tasks
+  tasks: state.App.tasks
 })
 const mapDispatchToProps = dispatch => bindActionCreators(TaskActions, dispatch)
 
