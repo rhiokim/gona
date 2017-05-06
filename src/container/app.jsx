@@ -1,18 +1,23 @@
 import React from 'react'
-// import {bindActionCreators} from 'redux'
-// import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 
 import {Header, Footer} from '../components'
 import Tasks from './Tasks'
 import Links from './Links'
-// import * as Actions from '../actions/app'
+import Meets from './Meets'
+import * as Actions from '../actions/app'
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      active: 'todo'
+  renderMain () {
+    const {activeMenu} = this.props
+    switch (activeMenu) {
+      case 'link':
+        return <Links />
+      case 'meet':
+        return <Meets />
+      default:
+        return <Tasks />
     }
   }
 
@@ -41,11 +46,7 @@ class App extends React.Component {
                 </div>
               </div>
 
-              <Tasks />
-
-              <hr />
-
-              <Links />
+              {this.renderMain()}
 
             </div>
           </div>
@@ -58,8 +59,9 @@ class App extends React.Component {
   }
 }
 
-// const mapStateToProps = state => ({
-// })
-// const mapDispatchToProps = dispatch => bindActionCreators(Action, dispatch)
+const mapStateToProps = state => ({
+  activeMenu: state.App.activeMenu
+})
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch)
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -5,6 +5,8 @@ import watch from 'node-watch'
 
 import {CHANGE_STORAGE} from './constants/actionTypes'
 
+// @TODO: initialize basic todo data structure at begin of new day
+
 const year = new Date().getFullYear()
 
 const getKey = () => {

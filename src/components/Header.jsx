@@ -14,7 +14,7 @@ class Header extends React.Component {
   }
 
   handleActiveMenu (menu) {
-    console.log('lll', arguments)
+    // console.log('lll', arguments)
     // this.setState({
     //   activeMenu: menu
     // })
