@@ -1,10 +1,13 @@
 import React from 'react'
+// import {bindActionCreators} from 'redux'
+// import {connect} from 'react-redux'
 
 import {Header, Footer} from '../components'
 import Tasks from './Tasks'
 import Links from './Links'
+// import * as Actions from '../actions/app'
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor (props) {
     super(props)
 
@@ -54,3 +57,9 @@ export default class App extends React.Component {
     )
   }
 }
+
+// const mapStateToProps = state => ({
+// })
+// const mapDispatchToProps = dispatch => bindActionCreators(Action, dispatch)
+
+export default App

@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes'
 
 const initialState = {
-  active: 'todo',
+  activeMenu: 'task',
   workspace: {
     default: []
   },
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET_ACTIVE_MENU:
       return Object.assign({}, state, {
-        active: action.menu
+        activeMenu: action.menu
       })
     case CHANGE_STORAGE:
       return Object.assign({}, state, {

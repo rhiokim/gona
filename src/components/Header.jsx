@@ -8,23 +8,48 @@ class Header extends React.Component {
   constructor (props) {
     super(props)
 
-    this.state = {}
+    // this.state = {
+    //   activeMenu: 'task'
+    // }
+  }
+
+  handleActiveMenu (menu) {
+    console.log('lll', arguments)
+    // this.setState({
+    //   activeMenu: menu
+    // })
+    this.props.setActiveMenu(menu)
+  }
+
+  active (menu) {
+    return 'btn btn-default' + (this.props.activeMenu === menu ? 'active' : '')
   }
 
   render () {
+    const {activeMenu} = this.props
+
     return (
       <header className="toolbar toolbar-header">
         <h1 className="title">TODO <span className="js-update-time" /></h1>
 
         <div className="toolbar-actions">
           <div className="btn-group">
-            <button className="btn btn-default active">
+            <button
+              className={this.active('task')}
+              onClick={this.handleActiveMenu.bind(this, 'task')}
+            >
               <span className="icon icon-check" />
             </button>
-            <button className="btn btn-default">
+            <button
+              className={this.active('link')}
+              onClick={this.handleActiveMenu.bind(this, 'link')}
+            >
               <span className="icon icon-link" />
             </button>
-            <button className="btn btn-default">
+            <button
+              className={this.active('meet')}
+              onClick={this.handleActiveMenu.bind(this, 'meet')}
+            >
               <span className="icon icon-users" />
             </button>
           </div>
@@ -43,7 +68,10 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = state => Object.assign({}, state.App)
+const mapStateToProps = state => ({
+  activeMenu: state.App.activeMenu
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
