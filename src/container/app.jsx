@@ -9,6 +9,10 @@ import Meets from './Meets'
 import * as Actions from '../actions/app'
 
 class App extends React.Component {
+  componentWillMount () {
+    this.props.fetchTodoAll()
+  }
+
   renderMain () {
     const {activeMenu} = this.props
     switch (activeMenu) {

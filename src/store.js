@@ -25,7 +25,7 @@ export const getTodoState = (part = 'tasks', workspace = 'default') => {
 export const getTodoAll = () => {
   const db = getStorage()
   return {
-    workspace: db.get(`tasks/${getKey()}`).value(),
+    workspaces: db.get(`tasks/${getKey()}`).value(),
     link: db.get(`link/${getKey()}`).value()
     // tasks: db.get(`tasks/${getKey()}`).value(),
     // tasks: db.get(`tasks/${getKey()}`).value()
@@ -55,7 +55,7 @@ export const setWatcher = store => {
     const todo = getTodoAll()
     store.dispatch({
       type: CHANGE_STORAGE,
-      workspace: todo.workspace,
+      workspaces: todo.workspaces,
       links: todo.links || []
     })
   })

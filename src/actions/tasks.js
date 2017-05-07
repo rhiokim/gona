@@ -1,17 +1,17 @@
 import {FETCH_TASKS} from '../constants/actionTypes'
-import {getTodoState, getTodoItem, getStorage} from '../store'
+import {getTodoItem} from '../store'
 
-const loadTasks = tasks => ({
-  type: FETCH_TASKS,
-  tasks: tasks
-})
-
-export const fetchTasks = () => {
-  return dispatch => {
-    const tasks = getTodoState('tasks')
-    dispatch(loadTasks(tasks))
-  }
-}
+// const loadTasks = tasks => ({
+//   type: FETCH_TASKS,
+//   tasks: tasks
+// })
+//
+// // export const fetchTasks = () => {
+// //   return dispatch => {
+// //     const tasks = getTodoState('tasks')
+// //     dispatch(loadTasks(tasks))
+// //   }
+// // }
 
 export const doneTask = (idx = 0, done = true) => {
   return dispatch => {

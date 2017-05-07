@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 
 import * as TaskActions from '../actions/tasks'
 
+import CompletedTasks from '../components/tasks/CompletedTasks'
+
 class Tasks extends React.Component {
   constructor (props) {
     super(props)
@@ -20,40 +22,47 @@ class Tasks extends React.Component {
   }
 
   componentWillMount () {
-    this.props.fetchTasks()
+    // this.props.fetchTasks()
   }
 
   render () {
-    const tasks = this.props.workspace[this.state.workspace]
+    const {workspace} = this.state
+    const tasks = this.props.workspaces[workspace]
     return (
-      <ul className="list">
-        {tasks.map((task, i) => {
-          return (
-            <li className="task" key={i}>
-              <label className="task-label">
-                <input
-                  type="checkbox"
-                  name=""
-                  checked={task.done}
-                  onChange={this.handleClick.bind(this, i)}
+      <div>
+        <ul className="list">
+          {tasks.map((task, i) => {
+            return (
+              <li className="task" key={i}>
+                <label className="task-label">
+                  <input
+                    type="checkbox"
+                    name=""
+                    checked={task.done}
+                    onChange={this.handleClick.bind(this, i)}
+                  />
+                  <span>{task.subject}</span>
+                </label>
+                <img
+                  className="icon-pomo pull-right"
+                  src="./assets/pomodoro.png"
+                  alt=""
                 />
-                <span>{task.subject}</span>
-              </label>
-              <img
-                className="icon-pomo pull-right"
-                src="./assets/pomodoro.png"
-                alt=""
-              />
-            </li>
-          )
-        })}
-      </ul>
+              </li>
+            )
+          })}
+        </ul>
+
+        <hr />
+
+        <CompletedTasks />
+      </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  workspace: state.App.workspace
+  workspaces: state.App.workspaces
 })
 const mapDispatchToProps = dispatch => bindActionCreators(TaskActions, dispatch)
 
