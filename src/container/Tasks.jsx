@@ -15,10 +15,10 @@ class Tasks extends React.Component {
     }
   }
 
-  handleClick (i, event) {
+  handleClick (id, event) {
     const el = event.target
     const value = el.checked
-    this.props.doneTask(i, value)
+    this.props.doneTask(id, value)
   }
 
   componentWillMount () {

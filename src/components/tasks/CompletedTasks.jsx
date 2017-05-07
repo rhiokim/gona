@@ -5,7 +5,11 @@ import {connect} from 'react-redux'
 import * as Actions from '../../actions/tasks'
 
 class CompletedTasks extends React.Component {
-  handleClick () {}
+  handleClick (id, event) {
+    const el = event.target
+    const value = el.checked
+    this.props.doneTask(id, value)
+  }
 
   render () {
     const tasks = this.props.completedTasks
