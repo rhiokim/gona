@@ -35,20 +35,20 @@ class Header extends React.Component {
         <div className="toolbar-actions">
           <div className="btn-group">
             <button
-              className={this.active('task')}
-              onClick={this.handleActiveMenu.bind(this, 'task')}
+              className={this.active('tasks')}
+              onClick={this.handleActiveMenu.bind(this, 'tasks')}
             >
               <span className="icon icon-check" />
             </button>
             <button
-              className={this.active('link')}
-              onClick={this.handleActiveMenu.bind(this, 'link')}
+              className={this.active('links')}
+              onClick={this.handleActiveMenu.bind(this, 'links')}
             >
               <span className="icon icon-link" />
             </button>
             <button
-              className={this.active('meet')}
-              onClick={this.handleActiveMenu.bind(this, 'meet')}
+              className={this.active('meettings')}
+              onClick={this.handleActiveMenu.bind(this, 'meettings')}
             >
               <span className="icon icon-users" />
             </button>

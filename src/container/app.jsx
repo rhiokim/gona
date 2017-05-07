@@ -12,9 +12,9 @@ class App extends React.Component {
   renderMain () {
     const {activeMenu} = this.props
     switch (activeMenu) {
-      case 'link':
+      case 'links':
         return <Links />
-      case 'meet':
+      case 'meettings':
         return <Meets />
       default:
         return <Tasks />

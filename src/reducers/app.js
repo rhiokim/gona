@@ -5,7 +5,7 @@ import {
 } from '../constants/actionTypes'
 
 const initialState = {
-  activeMenu: 'task',
+  activeMenu: 'tasks',
   workspace: {
     default: []
   },
