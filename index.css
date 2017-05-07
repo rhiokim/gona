@@ -27,6 +27,13 @@ label > input[type=checkbox] {
   display: inline-block;
 }
 
+.task.done {
+  color: #aaa;
+}
+.task.done span {
+  text-decoration: line-through;
+}
+
 img.icon-pomo {
   vertical-align: middle;
 }
