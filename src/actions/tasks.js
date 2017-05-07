@@ -15,7 +15,10 @@ import {getTodoItem} from '../store'
 
 export const doneTask = (id, done = true) => {
   return dispatch => {
-    const task = getTodoItem('tasks', id).assign({done: done})
+    const task = getTodoItem('tasks', id).assign({
+      done: done,
+      completedAt: done ? new Date().getTime() : undefined
+    })
     // console.log(id, task.value())
     task.write()
   }
