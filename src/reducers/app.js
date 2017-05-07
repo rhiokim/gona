@@ -9,11 +9,13 @@ const initialState = {
   workspaces: {
     default: []
   },
-  links: []
+  links: [],
+  tasks: [],
+  completedTasks: []
 }
 
-const completedTask = tasks => {
-  return tasks.filter(task => task.done === true)
+const completedTask = (tasks, bool = true) => {
+  return tasks.filter(task => task.done === bool)
 }
 
 export default (state = initialState, action) => {
@@ -27,7 +29,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         workspaces: action.workspaces,
         links: action.links,
-        completedTasks: completedTask(action.workspaces.default)
+        tasks: completedTask(action.workspaces.default, false),
+        completedTasks: completedTask(action.workspaces.default, true)
       })
     default:
       return state

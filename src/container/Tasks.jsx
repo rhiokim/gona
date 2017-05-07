@@ -26,8 +26,8 @@ class Tasks extends React.Component {
   }
 
   render () {
-    const {workspace} = this.state
-    const tasks = this.props.workspaces[workspace]
+    // const {workspace} = this.state
+    const {tasks} = this.props
     return (
       <div>
         <ul className="list">
@@ -62,7 +62,8 @@ class Tasks extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  workspaces: state.App.workspaces
+  workspaces: state.App.workspaces,
+  tasks: state.App.tasks
 })
 const mapDispatchToProps = dispatch => bindActionCreators(TaskActions, dispatch)
 
