@@ -32,9 +32,9 @@ export const getTodoAll = () => {
   }
 }
 
-export const getTodoItem = (part = 'tasks', idx = 0, workspace = 'default') => {
+export const getTodoItem = (part = 'tasks', id, workspace = 'default') => {
   const db = getStorage()
-  return db.get(`${part}/${getKey()}.${workspace}`).nth(idx)
+  return db.get(`${part}/${getKey()}.${workspace}`).find({id: id})
 }
 
 export const loadState = () => {

@@ -11,14 +11,13 @@ class CompletedTasks extends React.Component {
     const tasks = this.props.completedTasks
     return (
       <ul className="list">
-        {tasks.map((task, i) => (
-          <li className="task done" key={i}>
+        {tasks.map(task => (
+          <li className="task done" key={task.id}>
             <label className="task-label">
               <input
                 type="checkbox"
-                name=""
                 checked={task.done}
-                onChange={this.handleClick.bind(this, i)}
+                onChange={this.handleClick.bind(this, task.id)}
               />
               <span>{task.subject}</span>
             </label>

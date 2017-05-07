@@ -33,6 +33,11 @@ label > input[type=checkbox] {
 .task.done span {
   text-decoration: line-through;
 }
+.none {
+  clear: both;
+  text-align: center;
+  margin: 0 10px;
+}
 
 img.icon-pomo {
   vertical-align: middle;

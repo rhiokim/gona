@@ -13,9 +13,10 @@ import {getTodoItem} from '../store'
 // //   }
 // // }
 
-export const doneTask = (idx = 0, done = true) => {
+export const doneTask = (id, done = true) => {
   return dispatch => {
-    const task = getTodoItem('tasks', idx).assign({done: done})
+    const task = getTodoItem('tasks', id).assign({done: done})
+    // console.log(id, task.value())
     task.write()
   }
 }

@@ -30,16 +30,18 @@ class Tasks extends React.Component {
     const {tasks} = this.props
     return (
       <div>
+        {tasks.length === 0
+          ? <div className="none">Well done :) Great job</div>
+          : null}
         <ul className="list">
-          {tasks.map((task, i) => {
+          {tasks.map(task => {
             return (
-              <li className="task" key={i}>
+              <li className="task" key={task.id}>
                 <label className="task-label">
                   <input
                     type="checkbox"
-                    name=""
                     checked={task.done}
-                    onChange={this.handleClick.bind(this, i)}
+                    onChange={this.handleClick.bind(this, task.id)}
                   />
                   <span>{task.subject}</span>
                 </label>
