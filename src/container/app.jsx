@@ -2,7 +2,7 @@ import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import {Header, Footer} from '../components'
+import {Header, Footer, DateHeader} from '../components'
 import Tasks from './Tasks'
 import Links from './Links'
 import Meets from './Meets'
@@ -43,12 +43,7 @@ class App extends React.Component {
                 <div className="done" />
               </div>
 
-              <div className="day">
-                <h3 className="date">24 <small>Sunday</small></h3>
-                <div className="yy-mm pull-right">
-                  <b>April</b> <span>2017</span>
-                </div>
-              </div>
+              <DateHeader />
 
               {this.renderMain()}
 
