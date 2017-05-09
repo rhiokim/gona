@@ -11,6 +11,12 @@ class Footer extends React.Component {
     window.hide()
   }
 
+  handleClose (e) {
+    if (confirm('Are you sure?')) {
+      window.close()
+    }
+  }
+
   render () {
     return (
       <footer className="toolbar toolbar-footer">
@@ -43,7 +49,10 @@ class Footer extends React.Component {
               />
             </button>
 
-            <button className="btn btn-default js-quit-action">
+            <button
+              className="btn btn-default js-quit-action"
+              onClick={this.handleClose}
+            >
               <span className="icon icon-cancel js-quit-action" title="Quit" />
             </button>
           </div>
