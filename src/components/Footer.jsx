@@ -1,6 +1,16 @@
 import React from 'react'
+import {ipcRenderer, shell} from 'electron'
 
 class Footer extends React.Component {
+  handleClick (e) {
+    const {currentTarget} = e
+
+    e.preventDefault()
+    shell.openExternal(currentTarget.href)
+
+    window.hide()
+  }
+
   render () {
     return (
       <footer className="toolbar toolbar-footer">
@@ -10,6 +20,7 @@ class Footer extends React.Component {
             <a
               href="https://github.com/rhiokim/todo"
               className="btn btn-default"
+              onClick={this.handleClick}
             >
               <span className="icon icon-github" title="Refresh" />
             </a>
