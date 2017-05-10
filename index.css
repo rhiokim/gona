@@ -23,7 +23,7 @@ label > input[type=checkbox] {
 
 .task-label,
 .link-label {
-  width: 255px;
+  width: 300px;
   display: inline-block;
 }
 

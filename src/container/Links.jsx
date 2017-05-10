@@ -17,11 +17,7 @@ class Links extends React.Component {
                 {link.url}
               </a>
             </label>
-            <img
-              className="icon-pomo pull-right"
-              src="./assets/pomodoro.png"
-              alt=""
-            />
+            <span className="icon icon-pencil pull-right"></span>
           </li>
         ))}
       </ul>
