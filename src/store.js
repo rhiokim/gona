@@ -26,7 +26,7 @@ export const getTodoAll = () => {
   const db = getStorage()
   return {
     workspaces: db.get(`tasks/${getKey()}`).value(),
-    link: db.get(`link/${getKey()}`).value()
+    links: db.get(`links/${getKey()}`).value()
     // tasks: db.get(`tasks/${getKey()}`).value(),
     // tasks: db.get(`tasks/${getKey()}`).value()
   }
@@ -53,6 +53,7 @@ export const getStorage = () => {
 export const setWatcher = store => {
   watch(storageFilePath(), (e, name) => {
     const todo = getTodoAll()
+    console.log(todo)
     store.dispatch({
       type: CHANGE_STORAGE,
       workspaces: todo.workspaces,
