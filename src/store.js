@@ -37,6 +37,11 @@ export const getTodoItem = (part = 'tasks', id, workspace = 'default') => {
   return db.get(`${part}/${getKey()}.${workspace}`).find({id: id})
 }
 
+export const getLinkItem = id => {
+  const db = getStorage()
+  return db.get(`links/${getKey()}`).find({id: id})
+}
+
 export const loadState = () => {
   const db = getStorage()
   return db.get('config').value()
@@ -53,7 +58,6 @@ export const getStorage = () => {
 export const setWatcher = store => {
   watch(storageFilePath(), (e, name) => {
     const todo = getTodoAll()
-    console.log(todo)
     store.dispatch({
       type: CHANGE_STORAGE,
       workspaces: todo.workspaces,

@@ -1,5 +1,12 @@
-// import {FETCH_TASKS} from '../constants/actionTypes'
+import {getLinkItem} from '../store'
 
-export const doneLinks = (id, done = true) => {
-  return dispatch => {}
+export const doneLink = (id, done = true) => {
+  return dispatch => {
+    getLinkItem(id)
+      .assign({
+        done: done,
+        completedAt: done ? new Date().getTime() : undefined
+      })
+      .write()
+  }
 }

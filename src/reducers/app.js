@@ -14,8 +14,8 @@ const initialState = {
   completedTasks: []
 }
 
-const completedTask = (tasks, bool = true) => {
-  return tasks.filter(task => task.done === bool)
+const completed = (list, bool = true) => {
+  return list.filter(item => item.done === bool)
 }
 
 export default (state = initialState, action) => {
@@ -28,9 +28,10 @@ export default (state = initialState, action) => {
     case CHANGE_STORAGE:
       return Object.assign({}, state, {
         workspaces: action.workspaces,
-        links: action.links,
-        tasks: completedTask(action.workspaces.default, false),
-        completedTasks: completedTask(action.workspaces.default, true)
+        links: completed(action.links, false),
+        completedLinks: completed(action.links, true),
+        tasks: completed(action.workspaces.default, false),
+        completedTasks: completed(action.workspaces.default, true)
       })
     default:
       return state
