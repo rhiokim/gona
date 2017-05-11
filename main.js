@@ -1,5 +1,7 @@
-import { app, BrowserWindow, ipcMain, Tray } from 'electron'
+import {app, BrowserWindow, ipcMain, Tray} from 'electron'
 import path from 'path'
+import openAboutWindow from 'about-window'
+import pkg from './package.json'
 
 const iconPath = path.join(__dirname, 'assets/ic_check_black_24dp_1x.png')
 let mainWindow = null
@@ -11,7 +13,7 @@ const createTray = () => {
   tray = new Tray(iconPath)
   tray.on('right-click', toggleWindow)
   tray.on('double-click', toggleWindow)
-  tray.on('click', (event) => {
+  tray.on('click', event => {
     toggleWindow()
 
     if (mainWindow.isVisible() && process.defaultApp && event.metaKey) {
@@ -25,7 +27,9 @@ const getWindowPosition = () => {
   const trayBounds = tray.getBounds()
 
   // Center window horizontally below the tray icon
-  const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))
+  const x = Math.round(
+    trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
+  )
 
   // Position window 4 pixels vertically below the tray icon
   const y = Math.round(trayBounds.y + trayBounds.height + 4)
@@ -86,4 +90,15 @@ ipcMain.on('show-window', () => {
 
 ipcMain.on('show-devtool', () => {
   mainWindow.openDevTools({mode: 'detach'})
+})
+
+ipcMain.on('show-about', () => {
+  // @TODO need to set high quality icon
+  openAboutWindow({
+    icon_path: '../../assets/ic_check_box_black_24dp_2x.png',
+    copyright: 'Copyright (c) 2017 Haroo Studio',
+    bug_report_url: pkg.bugs.url,
+    license: pkg.license,
+    description: pkg.description
+  })
 })

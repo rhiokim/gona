@@ -25,6 +25,10 @@ class Footer extends React.Component {
     }
   }
 
+  openAbout (event) {
+    ipcRenderer.send('show-about')
+  }
+
   render () {
     return (
       <footer className="toolbar toolbar-footer">
@@ -38,6 +42,9 @@ class Footer extends React.Component {
             >
               <span className="icon icon-github" title="Refresh" />
             </a>
+            <button className="btn btn-default" onClick={this.openAbout}>
+              <span className="icon icon-info-circled" />
+            </button>
           </div>
         </div>
 

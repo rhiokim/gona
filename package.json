@@ -5,6 +5,9 @@
   "repository": "git@github.com:rhiokim/todo.git",
   "author": "Rhio Kim <rhio.kim@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhiokim/todo/issues"
+  },
   "private": true,
   "scripts": {
     "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
@@ -38,7 +41,7 @@
     "commitizen": "^2.9.6",
     "conventional-changelog-cli": "^1.3.1",
     "coveralls": "^2.13.0",
-    "electron": "^1.6.6",
+    "electron": "^1.6.7",
     "electron-installer-dmg": "^0.2.1",
     "electron-packager": "^8.6.0",
     "eslint": "^3.19.0",
@@ -61,6 +64,7 @@
     "validate-commit-msg": "^2.12.1"
   },
   "dependencies": {
+    "about-window": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
