@@ -117,8 +117,10 @@ img.icon-pomo {
   display: none;
 }
 
+.content,
 .list {
-  clear:both; padding: 0 10px
+  clear: both;
+  padding: 0 10px
 }
 
 /* */

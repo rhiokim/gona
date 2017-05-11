@@ -6,6 +6,7 @@ import {Header, Footer, DateHeader} from '../components'
 import Tasks from './Tasks'
 import Links from './Links'
 import Meets from './Meets'
+import Preferences from './Preferences'
 import * as Actions from '../actions/app'
 
 class App extends React.Component {
@@ -20,6 +21,8 @@ class App extends React.Component {
         return <Links />
       case 'meettings':
         return <Meets />
+      case 'preferences':
+        return <Preferences />
       default:
         return <Tasks />
     }

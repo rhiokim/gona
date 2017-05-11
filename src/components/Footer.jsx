@@ -1,5 +1,9 @@
 import React from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
 import {ipcRenderer, shell} from 'electron'
+
+import * as Actions from '../actions/app'
 
 class Footer extends React.Component {
   handleClick (e) {
@@ -9,6 +13,10 @@ class Footer extends React.Component {
     shell.openExternal(currentTarget.href)
 
     window.hide()
+  }
+
+  handleShowPreferences () {
+    this.props.setActiveMenu('preferences')
   }
 
   handleClose (e) {
@@ -42,11 +50,11 @@ class Footer extends React.Component {
               />
             </button>
 
-            <button className="btn btn-default show-devtool-action">
-              <span
-                className="icon icon-tools show-devtool-action"
-                title="DevTool"
-              />
+            <button
+              className="btn btn-default"
+              onClick={this.handleShowPreferences.bind(this)}
+            >
+              <span className="icon icon-cog" title="Preferences" />
             </button>
 
             <button
@@ -63,4 +71,10 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer
+const mapStateToProps = state => ({
+  activeMenu: state.App.activeMenu
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)
