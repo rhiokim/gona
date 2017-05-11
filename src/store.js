@@ -25,6 +25,7 @@ export const getTodoState = (part = 'tasks', workspace = 'default') => {
 export const getTodoAll = () => {
   const db = getStorage()
   return {
+    config: db.get('config').value(),
     workspaces: db.get(`tasks/${getKey()}`).value(),
     links: db.get(`links/${getKey()}`).value()
     // tasks: db.get(`tasks/${getKey()}`).value(),
@@ -42,7 +43,7 @@ export const getLinkItem = id => {
   return db.get(`links/${getKey()}`).find({id: id})
 }
 
-export const loadState = () => {
+export const loadConfig = () => {
   const db = getStorage()
   return db.get('config').value()
 }
@@ -55,11 +56,17 @@ export const getStorage = () => {
   return low(storageFilePath())
 }
 
+export const setConfig = (key, value) => {
+  const db = getStorage()
+  return db.get('config').assign({[key]: value}).write()
+}
+
 export const setWatcher = store => {
   watch(storageFilePath(), (e, name) => {
     const todo = getTodoAll()
     store.dispatch({
       type: CHANGE_STORAGE,
+      config: todo.config,
       workspaces: todo.workspaces,
       links: todo.links || []
     })

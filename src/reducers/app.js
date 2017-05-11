@@ -1,11 +1,13 @@
 import {
   SET_ACTIVE_MENU,
   CHANGE_STORAGE,
-  FETCH_TODO_ALL
+  FETCH_TODO_ALL,
+  FETCH_CONFIG
 } from '../constants/actionTypes'
 
 const initialState = {
   activeMenu: 'tasks',
+  config: {},
   workspaces: {
     default: []
   },
@@ -27,11 +29,16 @@ export default (state = initialState, action) => {
     case FETCH_TODO_ALL:
     case CHANGE_STORAGE:
       return Object.assign({}, state, {
+        config: action.config || {},
         workspaces: action.workspaces,
         links: completed(action.links, false),
         completedLinks: completed(action.links, true),
         tasks: completed(action.workspaces.default, false),
         completedTasks: completed(action.workspaces.default, true)
+      })
+    case FETCH_CONFIG:
+      return Object.assign({}, state, {
+        config: action.config
       })
     default:
       return state

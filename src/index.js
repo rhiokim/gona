@@ -6,12 +6,12 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import {createLogger} from 'redux-logger'
 
-import {loadState, setWatcher} from './store'
+import {setWatcher} from './store'
 import rootReducer from './reducers'
 
 import App from './container/app'
 
-const initialState = loadState()
+const initialState = {}
 
 const logger = createLogger({
   collapsed: true
@@ -23,9 +23,9 @@ let store = createStore(
   composeWithDevTools(applyMiddleware(thunk, logger))
 )
 
-store.subscribe(() => {
-  console.log(store.getState())
-})
+// store.subscribe(() => {
+//   console.log(store.getState())
+// })
 
 setWatcher(store)
 

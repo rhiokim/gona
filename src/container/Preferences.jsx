@@ -1,14 +1,32 @@
 import React from 'react'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
+import * as Actions from '../actions/config'
 import pkg from '../../package.json'
 
 class Preferences extends React.Component {
+  componentWillMount () {
+    this.props.fetchConfig()
+  }
+
+  toggleStartAtLogin (event) {
+    const el = event.target
+    this.props.putConfig('startAtLogin', el.checked)
+  }
+
   render () {
+    const {startAtLogin} = this.props.config
     return (
       <div className="content">
         <form>
           <div className="checkbox">
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                defaultChecked={startAtLogin}
+                onChange={this.toggleStartAtLogin.bind(this)}
+              />
               {' '}
               Start
               {' '}
@@ -23,4 +41,10 @@ class Preferences extends React.Component {
   }
 }
 
-export default Preferences
+const mapStateToProps = state => ({
+  config: state.App.config
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(Actions, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Preferences)
