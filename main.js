@@ -1,11 +1,17 @@
 import {app, BrowserWindow, ipcMain, Tray} from 'electron'
 import path from 'path'
 import openAboutWindow from 'about-window'
+import AutoLaunch from 'auto-launch'
 import pkg from './package.json'
 
 const iconPath = path.join(__dirname, 'assets/ic_check_black_24dp_1x.png')
 let mainWindow = null
 let tray = null
+
+const todoAutoLauncher = new AutoLaunch({
+  name: 'Todo',
+  path: '/Applications/Todo.app'
+})
 
 app.dock.hide()
 
@@ -101,4 +107,9 @@ ipcMain.on('show-about', () => {
     license: pkg.license,
     description: pkg.description
   })
+})
+
+ipcMain.on('enable-start-at-login', (event, enable) => {
+  console.log(enable)
+  enable ? todoAutoLauncher.enable() : todoAutoLauncher.disable()
 })

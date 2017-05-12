@@ -1,6 +1,7 @@
 import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import {ipcRenderer} from 'electron'
 
 import * as Actions from '../actions/config'
 import pkg from '../../package.json'
@@ -13,6 +14,8 @@ class Preferences extends React.Component {
   toggleStartAtLogin (event) {
     const el = event.target
     this.props.putConfig('startAtLogin', el.checked)
+
+    ipcRenderer.send('enable-start-at-login', el.checked)
   }
 
   render () {
