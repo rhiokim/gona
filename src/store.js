@@ -2,11 +2,14 @@ import os from 'os'
 import path from 'path'
 import low from 'lowdb'
 import watch from 'node-watch'
+import mkdirp from 'mkdirp'
 
 import {CHANGE_STORAGE} from './constants/actionTypes'
 
 // @TODO: initialize basic todo data structure at begin of new day
+// @TODO: need to refactor with cli db.js module
 
+let dir = path.join(os.homedir(), '.haroo')
 const year = new Date().getFullYear()
 
 const getKey = () => {
@@ -72,3 +75,26 @@ export const setWatcher = store => {
     })
   })
 }
+
+const create = () => {
+  let db
+  mkdirp.sync(dir)
+
+  db = low(path.join(dir, `${year}.json`))
+  db
+    .defaults({
+      config: {}
+    })
+    .write()
+
+  if (!db.has(`tasks/${getKey()}`).value()) {
+    db
+      .set(`tasks/${getKey()}`, {
+        default: []
+      })
+      .set(`links/${getKey()}`, [])
+      .write()
+  }
+}
+
+create()

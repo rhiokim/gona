@@ -73,6 +73,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "lowdb": "^0.16.2",
+    "mkdirp": "^0.5.1",
     "moment": "^2.18.1",
     "node-watch": "^0.5.3",
     "react": "^15.5.4",
