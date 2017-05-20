@@ -1,3 +1,87 @@
-h1 {
-  color: red;
+body {
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+h4 > small {
+  color: #999;
+  font-size: .5em;
+}
+
+.header {
+  text-align: center;
+  margin-top: 8rem;
+}
+
+.title {
+  margin-top: 8rem;
+}
+
+.logo {
+  width: 120px;
+}
+
+nav a {
+  margin: 0 10px;
+}
+.nav-link {
+  margin-top: 3rem;
+}
+
+.story {
+  margin: 50px;
+}
+
+.section {
+  padding: 4rem 0 7rem;
+  text-align: center;
+}
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
+}
+
+.copyright {
+  color: #999;
+  margin-top: 10rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.philosophy {}
+.philosophy img {
+  margin: 50px 10px;
+}
+
+/* Bigger than 550 */
+@media (min-width: 550px) {
+  .header {
+    margin-top: 8rem; }
+  .section {
+    padding: 12rem 0 11rem;
+  }
+}
+
+/* Bigger than 750 */
+@media (min-width: 750px) {
+  .section {
+    padding: 7rem 0 15rem;
+  }
+  .section-description {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Bigger than 1000 */
+@media (min-width: 1000px) {
+  .section {
+    padding: 10rem 0 0;
+  }
 }
