@@ -1,0 +1,25 @@
+.release-notes h1 {
+  font-size: 4rem;
+}
+
+.release-notes h3 {
+  font-size: 2rem;
+}
+
+.release-notes .contents {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 550px) {
+  .release-notes .contents {
+    max-width: 70%;
+  }
+}
+
+@media (min-width: 750px) {
+  .release-notes .contents {
+    max-width: 65%;
+  }
+}
