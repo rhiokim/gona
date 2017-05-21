@@ -35,14 +35,6 @@ nav a {
   margin: 50px;
 }
 
-.section {
-  padding: 4rem 0 7rem;
-  text-align: center;
-}
-.section-heading,
-.section-description {
-  margin-bottom: 1.2rem;
-}
 
 .copyright {
   color: #999;
@@ -53,9 +45,29 @@ nav a {
   text-align: center;
 }
 
-.philosophy {}
-.philosophy img {
+.concept {}
+.concept img {
   margin: 50px 10px;
+}
+
+.get-help {
+  margin: 30px 0;
+}
+
+.download {
+  margin: 30px 0;
+}
+.download a {
+  margin: 0 5px;
+}
+
+.section {
+  padding: 4rem 0 7rem;
+  text-align: center;
+}
+.section-heading,
+.section-description {
+  margin-bottom: 1.2rem;
 }
 
 /* Bigger than 550 */
@@ -63,14 +75,14 @@ nav a {
   .header {
     margin-top: 8rem; }
   .section {
-    padding: 12rem 0 11rem;
+    /*padding: 4rem 0 4rem;*/
   }
 }
 
 /* Bigger than 750 */
 @media (min-width: 750px) {
   .section {
-    padding: 7rem 0 15rem;
+    /*padding: 4rem 0 4rem;*/
   }
   .section-description {
     max-width: 60%;
@@ -82,6 +94,6 @@ nav a {
 /* Bigger than 1000 */
 @media (min-width: 1000px) {
   .section {
-    padding: 10rem 0 0;
+    /*padding: 1rem 0 0;*/
   }
 }
