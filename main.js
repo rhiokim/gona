@@ -1,4 +1,4 @@
-import {app, BrowserWindow, ipcMain, Tray} from 'electron'
+import { app, BrowserWindow, ipcMain, Tray } from 'electron'
 import path from 'path'
 import openAboutWindow from 'about-window'
 import AutoLaunch from 'auto-launch'
@@ -24,7 +24,7 @@ const createTray = () => {
     toggleWindow()
 
     if (mainWindow.isVisible() && process.defaultApp && event.metaKey) {
-      mainWindow.openDevTools({mode: 'detach'})
+      mainWindow.openDevTools({ mode: 'detach' })
     }
   })
 }
@@ -41,7 +41,7 @@ const getWindowPosition = () => {
   // Position window 4 pixels vertically below the tray icon
   const y = Math.round(trayBounds.y + trayBounds.height + 4)
 
-  return {x: x, y: y}
+  return { x: x, y: y }
 }
 
 const showWindow = () => {
@@ -63,7 +63,7 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 350,
     height: 450,
-    show: true,
+    show: false,
     frame: false,
     fullscreenable: false,
     resizable: false,
@@ -94,7 +94,7 @@ ipcMain.on('show-window', () => {
 })
 
 ipcMain.on('show-devtool', () => {
-  mainWindow.openDevTools({mode: 'detach'})
+  mainWindow.openDevTools({ mode: 'detach' })
 })
 
 ipcMain.on('show-about', () => {

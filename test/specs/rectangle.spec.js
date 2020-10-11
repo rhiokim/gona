@@ -26,6 +26,6 @@ describe('Rectangle', () => {
       (() => {
         rectangle.width = 'foo'
       }).should.throw(Error)
-    });
-  });
-});
+    })
+  })
+})

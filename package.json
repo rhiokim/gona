@@ -13,16 +13,13 @@
     "lint": "eslint --format=node_modules/eslint-formatter-pretty 'src/**/*.@(js|jsx)'",
     "flow": "flow",
     "lint:msg": "validate-commit-msg",
-    "format": "prettier-eslint --write 'src/**/*.@(js|jsx)'",
+    "format": "prettier-eslint --write $PWD/'src/**/*.[jt]s?(x)' && eslint --fix .",
     "test": "mocha",
     "start": "electron .",
     "coverage": "nyc --reporter=json --reporter=lcov --reporter=text mocha",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "commit": "git cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
-    "precommit": "npm run format && npm run lint && flow",
-    "prepush": "npm test",
-    "commitmsg": "npm run lint:msg",
     "sign": "electron-osx-sign todo-darwin-x64/todo.app --identity=gona",
     "pkg:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/sloth.icns --prune=true --out-release-builds",
     "pkg:win": "electron-packager . --overwrite --platform=win --arch=x64 --icon=assets/mac/icon.png.icns --prune=true --out-release-builds",
@@ -87,5 +84,12 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "npm run lint:msg",
+      "pre-commit": "npm run format && npm run lint && flow",
+      "pre-push": "npm test"
+    }
   }
 }
