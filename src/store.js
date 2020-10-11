@@ -4,12 +4,12 @@ import low from 'lowdb'
 import watch from 'node-watch'
 import mkdirp from 'mkdirp'
 
-import {CHANGE_STORAGE} from './constants/actionTypes'
+import { CHANGE_STORAGE } from './constants/actionTypes'
 
 // @TODO: initialize basic todo data structure at begin of new day
 // @TODO: need to refactor with cli db.js module
 
-let dir = path.join(os.homedir(), '.haroo')
+const dir = path.join(os.homedir(), '.haroo')
 const year = new Date().getFullYear()
 
 const getKey = () => {
@@ -38,12 +38,12 @@ export const getTodoAll = () => {
 
 export const getTodoItem = (part = 'tasks', id, workspace = 'default') => {
   const db = getStorage()
-  return db.get(`${part}/${getKey()}.${workspace}`).find({id: id})
+  return db.get(`${part}/${getKey()}.${workspace}`).find({ id: id })
 }
 
 export const getLinkItem = id => {
   const db = getStorage()
-  return db.get(`links/${getKey()}`).find({id: id})
+  return db.get(`links/${getKey()}`).find({ id: id })
 }
 
 export const loadConfig = () => {
@@ -63,7 +63,7 @@ export const setConfig = (key, value) => {
   const db = getStorage()
   return db
     .get('config')
-    .assign({[key]: value})
+    .assign({ [key]: value })
     .write()
 }
 
@@ -80,10 +80,9 @@ export const setWatcher = store => {
 }
 
 const create = () => {
-  let db
   mkdirp.sync(dir)
 
-  db = low(path.join(dir, `${year}.json`))
+  const db = low(path.join(dir, `${year}.json`))
   db.defaults({
     config: {}
   }).write()

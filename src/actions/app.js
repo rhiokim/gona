@@ -1,5 +1,5 @@
-import {SET_ACTIVE_MENU, FETCH_TODO_ALL} from '../constants/actionTypes'
-import {getTodoAll} from '../store'
+import { SET_ACTIVE_MENU, FETCH_TODO_ALL } from '../constants/actionTypes'
+import { getTodoAll } from '../store'
 
 const activeMenu = menu => ({
   type: SET_ACTIVE_MENU,

@@ -1,7 +1,7 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {ipcRenderer} from 'electron'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { ipcRenderer } from 'electron'
 
 import * as Actions from '../actions/config'
 import pkg from '../../package.json'
@@ -19,7 +19,7 @@ class Preferences extends React.Component {
   }
 
   render () {
-    const {startAtLogin} = this.props.config
+    const { startAtLogin } = this.props.config
     return (
       <div className="content">
         <form>

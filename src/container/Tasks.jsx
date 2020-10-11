@@ -1,6 +1,6 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import * as TaskActions from '../actions/tasks'
 
@@ -27,7 +27,7 @@ class Tasks extends React.Component {
 
   render () {
     // const {workspace} = this.state
-    const {tasks} = this.props
+    const { tasks } = this.props
     return (
       <div>
         {tasks.length === 0 ? (

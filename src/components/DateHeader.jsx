@@ -26,7 +26,7 @@ class DateHeader extends React.PureComponent {
   }
 
   render () {
-    const {year, month, date, dayOfWeek} = this.state
+    const { year, month, date, dayOfWeek } = this.state
     return (
       <div>
         <div className="day">

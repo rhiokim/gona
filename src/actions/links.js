@@ -1,4 +1,4 @@
-import {getLinkItem} from '../store'
+import { getLinkItem } from '../store'
 
 export const doneLink = (id, done = true) => {
   return dispatch => {

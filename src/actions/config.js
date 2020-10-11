@@ -1,5 +1,5 @@
-import {FETCH_CONFIG} from '../constants/actionTypes'
-import {setConfig, loadConfig} from '../store'
+import { FETCH_CONFIG } from '../constants/actionTypes'
+import { setConfig, loadConfig } from '../store'
 
 const loadedConfig = config => ({
   type: FETCH_CONFIG,

@@ -1,5 +1,5 @@
-import {FETCH_TASKS} from '../constants/actionTypes'
-import {getTodoItem} from '../store'
+import { FETCH_TASKS } from '../constants/actionTypes'
+import { getTodoItem } from '../store'
 
 // const loadTasks = tasks => ({
 //   type: FETCH_TASKS,

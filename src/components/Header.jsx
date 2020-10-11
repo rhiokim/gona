@@ -1,6 +1,6 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import * as Actions from '../actions/app'
 
@@ -26,7 +26,7 @@ class Header extends React.Component {
   }
 
   render () {
-    const {activeMenu} = this.props
+    const { activeMenu } = this.props
 
     return (
       <header className="toolbar toolbar-header">

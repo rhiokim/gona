@@ -1,6 +1,6 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import * as Actions from '../actions/links'
 import CompletedLinks from '../components/links/CompletedLinks'
@@ -13,7 +13,7 @@ class Links extends React.Component {
   }
 
   render () {
-    const {links} = this.props
+    const { links } = this.props
     return (
       <div>
         {links.length === 0 ? (

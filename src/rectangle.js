@@ -32,13 +32,13 @@ class Rectangle {
   }
 
   get area () {
-    let result = this.width * this.height
+    const result = this.width * this.height
     this.logger.log(result)
     return result
   }
 
   get circumference () {
-    let result = 2 * this.width + 2 * this.height
+    const result = 2 * this.width + 2 * this.height
     this.logger.log(result)
     return result
   }

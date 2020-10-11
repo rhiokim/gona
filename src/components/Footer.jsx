@@ -1,13 +1,13 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {ipcRenderer, shell} from 'electron'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { ipcRenderer, shell } from 'electron'
 
 import * as Actions from '../actions/app'
 
 class Footer extends React.Component {
   handleClick (e) {
-    const {currentTarget} = e
+    const { currentTarget } = e
 
     e.preventDefault()
     shell.openExternal(currentTarget.href)
@@ -20,7 +20,7 @@ class Footer extends React.Component {
   }
 
   handleClose (e) {
-    if (confirm('Are you sure?')) {
+    if (window.confirm('Are you sure?')) {
       window.close()
     }
   }

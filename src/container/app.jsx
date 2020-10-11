@@ -1,8 +1,8 @@
 import React from 'react'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-import {Header, Footer, DateHeader} from '../components'
+import { Header, Footer, DateHeader } from '../components'
 import Tasks from './Tasks'
 import Links from './Links'
 import Meets from './Meets'
@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   renderMain () {
-    const {activeMenu} = this.props
+    const { activeMenu } = this.props
     switch (activeMenu) {
       case 'links':
         return <Links />
