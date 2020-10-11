@@ -17,6 +17,7 @@ app.dock.hide()
 
 const createTray = () => {
   tray = new Tray(iconPath)
+  tray.setToolTip('Gona')
   tray.on('right-click', toggleWindow)
   tray.on('double-click', toggleWindow)
   tray.on('click', event => {
@@ -62,16 +63,14 @@ const createWindow = () => {
   mainWindow = new BrowserWindow({
     width: 350,
     height: 450,
-    show: false,
+    show: true,
     frame: false,
     fullscreenable: false,
     resizable: false,
-    transparent: true,
     webPreferences: {
       backgroundThrottling: false
     }
   })
-
   mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.on('blur', () => {
     if (!mainWindow.webContents.isDevToolsOpened()) {
@@ -99,10 +98,10 @@ ipcMain.on('show-devtool', () => {
 })
 
 ipcMain.on('show-about', () => {
-  // @TODO need to set high quality icon
+  // TODO: need to set high quality icon
   openAboutWindow({
     icon_path: '../../assets/ic_check_box_black_24dp_2x.png',
-    copyright: 'Copyright (c) 2017 Haroo Studio',
+    copyright: 'Copyright (c) 2020 Haroo Studio',
     bug_report_url: pkg.bugs.url,
     license: pkg.license,
     description: pkg.description
