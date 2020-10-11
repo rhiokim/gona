@@ -30,9 +30,9 @@ class Tasks extends React.Component {
     const {tasks} = this.props
     return (
       <div>
-        {tasks.length === 0
-          ? <div className="none">Well done :) Great job</div>
-          : null}
+        {tasks.length === 0 ? (
+          <div className="none">Well done :) Great job</div>
+        ) : null}
         <ul className="list">
           {tasks.map(task => {
             return (

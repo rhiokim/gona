@@ -30,7 +30,9 @@ class Header extends React.Component {
 
     return (
       <header className="toolbar toolbar-header">
-        <h1 className="title">TODO <span className="js-update-time" /></h1>
+        <h1 className="title">
+          TODO <span className="js-update-time" />
+        </h1>
 
         <div className="toolbar-actions">
           <div className="btn-group">

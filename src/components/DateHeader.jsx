@@ -30,7 +30,9 @@ class DateHeader extends React.PureComponent {
     return (
       <div>
         <div className="day">
-          <h3 className="date">{date} <small>{dayOfWeek}</small></h3>
+          <h3 className="date">
+            {date} <small>{dayOfWeek}</small>
+          </h3>
           <div className="yy-mm pull-right">
             <b>{month}</b> <span>{year}</span>
           </div>

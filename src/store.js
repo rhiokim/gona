@@ -61,7 +61,10 @@ export const getStorage = () => {
 
 export const setConfig = (key, value) => {
   const db = getStorage()
-  return db.get('config').assign({[key]: value}).write()
+  return db
+    .get('config')
+    .assign({[key]: value})
+    .write()
 }
 
 export const setWatcher = store => {
@@ -81,17 +84,14 @@ const create = () => {
   mkdirp.sync(dir)
 
   db = low(path.join(dir, `${year}.json`))
-  db
-    .defaults({
-      config: {}
-    })
-    .write()
+  db.defaults({
+    config: {}
+  }).write()
 
   if (!db.has(`tasks/${getKey()}`).value()) {
-    db
-      .set(`tasks/${getKey()}`, {
-        default: []
-      })
+    db.set(`tasks/${getKey()}`, {
+      default: []
+    })
       .set(`links/${getKey()}`, [])
       .write()
   }

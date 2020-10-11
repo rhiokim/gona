@@ -33,12 +33,10 @@ class App extends React.Component {
       <div>
         <div className="header-arrow" />
         <div className="window">
-
           <Header />
 
           <div className="window-content">
             <div className="pane">
-
               <div className="summary js-summary hide">Loading…</div>
 
               <div className="progress">
@@ -49,12 +47,10 @@ class App extends React.Component {
               <DateHeader />
 
               {this.renderMain()}
-
             </div>
           </div>
 
           <Footer />
-
         </div>
       </div>
     )

@@ -16,9 +16,9 @@ class Links extends React.Component {
     const {links} = this.props
     return (
       <div>
-        {links.length === 0
-          ? <div className="none">Well done :) Great job</div>
-          : null}
+        {links.length === 0 ? (
+          <div className="none">Well done :) Great job</div>
+        ) : null}
 
         <ul className="list">
           {links.map(link => (
@@ -29,9 +29,7 @@ class Links extends React.Component {
                   checked={link.done}
                   onChange={this.handleClick.bind(this, link.id)}
                 />
-                <a href={link.url}>
-                  {link.url}
-                </a>
+                <a href={link.url}>{link.url}</a>
               </label>
             </li>
           ))}

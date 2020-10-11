@@ -32,7 +32,6 @@ class Footer extends React.Component {
   render () {
     return (
       <footer className="toolbar toolbar-footer">
-
         <div className="toolbar-actions pull-left">
           <div className="btn-group">
             <a
@@ -72,7 +71,6 @@ class Footer extends React.Component {
             </button>
           </div>
         </div>
-
       </footer>
     )
   }

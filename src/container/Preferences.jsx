@@ -29,13 +29,8 @@ class Preferences extends React.Component {
                 type="checkbox"
                 defaultChecked={startAtLogin}
                 onChange={this.toggleStartAtLogin.bind(this)}
-              />
-              {' '}
-              Start
-              {' '}
-              <strong>{pkg.name}</strong>
-              {' '}
-              when you login
+              />{' '}
+              Start <strong>{pkg.name}</strong> when you login
             </label>
           </div>
         </form>
